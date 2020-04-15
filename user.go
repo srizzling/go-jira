@@ -209,7 +209,7 @@ func WithInactive(inactive bool) userSearchF {
 func (s *UserService) Find(property string, tweaks ...userSearchF) ([]User, *Response, error) {
 	search := []userSearchParam{
 		{
-			name:  "username",
+			name:  "emailAddress",
 			value: property,
 		},
 	}
