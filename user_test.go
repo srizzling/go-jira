@@ -150,7 +150,7 @@ func TestUserService_Find_Success(t *testing.T) {
 	defer teardown()
 	testMux.HandleFunc("/rest/api/2/user/search", func(w http.ResponseWriter, r *http.Request) {
 		testMethod(t, r, "GET")
-		testRequestURL(t, r, "/rest/api/2/user/search?username=fred@example.com")
+		testRequestURL(t, r, "/rest/api/2/user/search?emailAddress=fred@example.com")
 
 		fmt.Fprint(w, `[{"self":"http://www.example.com/jira/rest/api/2/user?username=fred","key":"fred",
         "name":"fred","emailAddress":"fred@example.com","avatarUrls":{"48x48":"http://www.example.com/jira/secure/useravatar?size=large&ownerId=fred",
@@ -173,7 +173,7 @@ func TestUserService_Find_SuccessParams(t *testing.T) {
 	defer teardown()
 	testMux.HandleFunc("/rest/api/2/user/search", func(w http.ResponseWriter, r *http.Request) {
 		testMethod(t, r, "GET")
-		testRequestURL(t, r, "/rest/api/2/user/search?username=fred@example.com&startAt=100&maxResults=1000")
+		testRequestURL(t, r, "/rest/api/2/user/search?emailAddress=fred@example.com&startAt=100&maxResults=1000")
 
 		fmt.Fprint(w, `[{"self":"http://www.example.com/jira/rest/api/2/user?username=fred","key":"fred",
         "name":"fred","emailAddress":"fred@example.com","avatarUrls":{"48x48":"http://www.example.com/jira/secure/useravatar?size=large&ownerId=fred",
